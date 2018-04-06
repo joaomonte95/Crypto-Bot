@@ -3,7 +3,7 @@
 To run the bot, you must add a token.json as {"TOKEN":"<TOKEN NUMBER>"} in root directory
 and run "python bot.py" in your terminal.
   
-##Requirements:
+#Requirements:
 
 *python-telegram-bot: pip install python-telegram-bot --upgrade
 
@@ -13,7 +13,7 @@ and run "python bot.py" in your terminal.
 
 *mongoDB
 
-##Functions:
+#Functions:
 
 /start: Show start message
 /help: Show all commands
