@@ -1,7 +1,7 @@
 # Crypto-Bot
 
 ## Function:
-This bot intends to show important data about crypto currencies, capted by web scrapping in the site https://coinmarketcap.com/.
+This bot intends to show important data about crypto currencies, captured with web scrapping in the site https://coinmarketcap.com/.
 
 ## Running the bot
 To run the bot, you must add a token.json as {"TOKEN":"<TOKEN NUMBER>"} in root directory
