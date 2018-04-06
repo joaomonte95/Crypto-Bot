@@ -6,8 +6,11 @@ and run "python bot.py" in your terminal.
 Requirements:
 
 *python-telegram-bot: pip install python-telegram-bot --upgrade
+
 *requests: pip install requests
+
 *beautifulsoup: pip install beautifulsoup4
+
 *mongoDB
 
 Functions:
