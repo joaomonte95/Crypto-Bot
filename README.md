@@ -16,5 +16,7 @@ and run "python bot.py" in your terminal.
 #Functions:
 
 /start: Show start message
+
 /help: Show all commands
+
 /data cryptoCurrency  - show the most import data about the argument crypto currency
