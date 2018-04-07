@@ -1,17 +1,15 @@
 from telegram.ext import JobQueue,Updater, CommandHandler, MessageHandler, Filters
 from telegram import Bot
 from Libs.db_querys import MongoQuerys
-from Libs.scrapping import Scraping
+from Libs.cmc_api import get_request
 import logging
 import json
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-with open("token.json","r") as file_output:
-    TOKEN = file_output.read()
-
-TOKEN = json.loads(TOKEN)
-TOKEN = TOKEN['TOKEN']
+query = MongoQuerys()
+token_document = query.get_token({"name":"token"})
+TOKEN = token_document["token"]
 
 def start(bot,update):
     update.message.reply_text('Welcome to the crypto coin assitent bot! To get aknowledge about all my funcionalities, please type /help.')
@@ -37,20 +35,21 @@ def error(bot, update, error):
 def data(bot, update):
     coin_text = update.message.text.lower()
     args = coin_text.split(" ")[1::]
+    for i in range(len(args)):
+        args[i] = args[i].title()
     args = " ".join(args)
+    print(args)
     query = MongoQuerys()
     query_response = query.get_from_db({"name":f"{args}"})
-    print(query_response)
     response = ""
     for k,v in query_response.items():
-        if k!="_id":
-            response += k + " : " + str(v) + " | "
+        if k!="_id" and k!="id":
+            response += k + " : " + str(v) + " \n "
     update.message.reply_text(response)
 
 def db_update(bot,job):
     db = MongoQuerys()
-    scrapper = Scraping()
-    data = scrapper.main()
+    data = get_request()
     db.drop_collections()
     for element in data:
         db.post_to_db(element)
