@@ -53,6 +53,9 @@ def db_update(bot,job):
     for element in data:
         db.post_to_db(element)
 
+def unknown(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text="Invalid command")
+
 def main():
     """Start the bot."""
     updater = Updater(TOKEN)
@@ -62,6 +65,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("data", data))
     dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_andler(MessageHandler([Filters.command], unknown))
     dp.add_error_handler(error)
     job.run_repeating(db_update, interval=60, first=0)
     updater.start_polling()
