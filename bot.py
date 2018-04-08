@@ -54,7 +54,7 @@ def db_update(bot,job):
         db.post_to_db(element)
 
 def unknown(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Invalid command")
+    bot.sendMessage(chat_id=update.message.chat_id, text="Invalid command!\n Type /help to see all commands.")
 
 def main():
     """Start the bot."""
