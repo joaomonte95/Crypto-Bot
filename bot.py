@@ -1,5 +1,4 @@
 from telegram.ext import JobQueue,Updater, CommandHandler, MessageHandler, Filters
-from telegram import Bot
 from Libs.db_querys import MongoQuerys
 from Libs.cmc_api import get_request
 import logging
