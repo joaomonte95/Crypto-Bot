@@ -4,9 +4,10 @@
 This bot intends to show important data about crypto currencies, obteined in https://coinmarketcap.com/ 's API.
 
 ## Running the bot
-To run the bot, you must add a token.json as {"TOKEN":"<TOKEN NUMBER>"} in root directory
-and run "python bot.py" in your terminal.
+add a your dev key to mongodb admin bank, token collection.
+{_id:...,"name":"token","token":<your token>}
   
+Run bot.py
 ## Requirements:
 
 * python-telegram-bot: pip install python-telegram-bot --upgrade
